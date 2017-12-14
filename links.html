@@ -1,0 +1,20 @@
+---
+layout: default
+title: Manuscripts
+---
+
+<h1>Manuscripts</h1>
+
+<table class="links">
+    {% for item in site.data.manuscripts.links %}
+    <tr>
+        <td>
+            {% if item[0].size > 0 %}
+            <a href="{{ item[1] }}" target="_blank">{{ item[0] }}</a>
+            {% else %}
+            &nbsp;
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>

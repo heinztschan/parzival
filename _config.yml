@@ -1,0 +1,29 @@
+# Site settings
+title: DH project
+description: "This is an example website for the DH projects 2017"
+email: lxpugin@gmail.com
+baseurl: "/" 
+
+# Build settings
+markdown: kramdown
+
+# Version
+version: 1.0.0
+
+# Repository
+github:
+  repo: https://github.com/DHBern/tiny-edition
+
+top_menu:
+    - id: home
+      url: "index.html"
+      text: Home
+    - id: samples
+      url: "samples.html"
+      text: Samples
+    - id: description
+      url: "description.html"
+      text: Description
+    - id: nowhere
+      url: "broken.html"
+      text: Try it
