@@ -3,17 +3,9 @@ layout: default
 title: Über das Projekt
 ---
 
-# Description
+# Beschreibung
 
-## Introduction
+## Einführung
 
-This is a paragraph with the description of the project. See this [page](http://dh.unibe.ch) for more information about the department.
+Hier finden Sie eine kurze Beschreibung unseres Projektes im Rahmen der Vorlesung "Digital Humanities". Unter [page](http://dh.unibe.ch) finden Sie mehr Informationen über das Institut.
 
-A list:
-
-* Item 2
-* Item 1
-
-### A sub section
-
-Etc. 
