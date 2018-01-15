@@ -12,8 +12,8 @@
     </head>
     
  <body>    
-    <div id="map_canvas"></div>
-    <script type='text/javascript'>
+ <div id="map_canvas"></div>
+ <script type='text/javascript'>
                         
 
 function get_url_param( name )
@@ -48,12 +48,14 @@ window.onload = function() {
                  }
  
                 
+                //
                 //var myLatLng = { lat: 47.42318, lng: 9.376831 };
                 //document.writeln ('Latitude: ' + latitude);
                 //document.writeln ('Longitude: ' + longitude);
                 //document.writeln('Library: ' + library);
                 //document.writeln('Linkurl: ' + linkurl);
                 //document.writeln('MyLatLng: ' + string(myLatLng);
+                //
 
                 function init() {
                     map = new google.maps.Map(document.getElementById('map_canvas'), {
@@ -84,12 +86,9 @@ window.onload = function() {
 
                 init();
             } 
-    </script>
-                    
-                    
-    
-        <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
-        
-    </body>
-    
-</html>
+
+ </script>
+ <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+ 
+ </body>
+ </html>
