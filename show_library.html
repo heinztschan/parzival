@@ -10,38 +10,43 @@
         </style>
         <title>Parzival</title>
     </head>
-    
- <body>    
- <div id="map_canvas"></div>
  
- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOvxF6-SadeAw8NM63hgXZt6LzLQw4YDY&callback=initMap"></script> 
-     
-     
- <script type='text/javascript'>
-                        
+ <body>    
+    <div id="map_canvas"></div>
+ 
+    <!-- Es muss mit einem Google-Account ein API-Key übergeben werden. Sonst funktioniert es mit GitHub nicht, ohne schon. -->
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOvxF6-SadeAw8NM63hgXZt6LzLQw4YDY&callback=initMap"></script> 
+    
+    <script type='text/javascript'>
+ 
+    // Funktion, um übergebenen Parameter zu erhalten     
+    function get_url_param( name )
+    {
+	   name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
 
-function get_url_param( name )
-{
-	name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+	   var regexS = "[\\?&]"+name+"=([^&]*)";
+	   var regex = new RegExp( regexS );
+	   var results = regex.exec( window.location.href );
+	
+	   //Umwandlung der Sonderzeichen bei Paramterübergabe
+        results[1] = results[1].replace(/(%20)+/," ");
+        results[1] = results[1].replace(/%C3%A4/,"ä").replace(/%C3%B6/,"ö").replace(/%C3%BC/,"ü");
+        results[1] = results[1].replace(/%C3%84/,"Ä").replace(/%C3%96/,"Ö").replace(/%C3%9C/,"Ü");
+        results[1] = results[1].replace(/%C3%A9/,"é").replace(/%C3%A8/,"è").replace(/%C3%AA/,"ê");
+        results[1] = results[1].replace(/%C3%A1/,"á").replace(/%C3%A0/,"à").replace(/%C3%A2/,"â");
+        results[1] = results[1].replace(/%C3%B3/,"ó").replace(/%C3%B2/,"ò").replace(/%C3%B4/,"ô");
 
-	var regexS = "[\\?&]"+name+"=([^&#]*)";
-	var regex = new RegExp( regexS );
-	var results = regex.exec( window.location.href );
+	   if ( results == null )
+		  return "";
+	   else
+		  return results[1];
+     }; // get_url_param()
 
-	if ( results == null )
-		return "";
-	else
-		return results[1];
-};
-
-window.onload = function() {
-                var locations = [
-                    ['St. Gallen', 47.42318, 9.376831, 'St. Gallen', 'http://www.google.com']
-  //                  ['Wien', 48.205875, 16.366904, 'Wien', 'http://www.facebook.com']
-               ];
+     window.onload = function() {
                 var map;
                 var markers = [];
 
+                // Variablen-Zuweisung für mMrker-Funktion: Uebergabeparameter
                 var latitude = get_url_param('lat');
                 var longitude = get_url_param('lng');
                 var library = get_url_param('lib');
@@ -49,11 +54,9 @@ window.onload = function() {
                 var position = {
                     lat: parseFloat(latitude),
                     lng: parseFloat(longitude)
-                 }
- 
+                }; // position
                 
-                //
-                //var myLatLng = { lat: 47.42318, lng: 9.376831 };
+                // Test-Statements
                 //document.writeln ('Latitude: ' + latitude);
                 //document.writeln ('Longitude: ' + longitude);
                 //document.writeln('Library: ' + library);
@@ -64,33 +67,32 @@ window.onload = function() {
                 function init() {
                     map = new google.maps.Map(document.getElementById('map_canvas'), {
                         zoom: 5,
-                        //center: new google.maps.LatLng(-33.92, 151.25),
+                        //Zentrierung der Karte auf Bibliothek
                         center: new google.maps.LatLng( latitude, longitude),
+                        //Definition Kartentyp
                         mapTypeId: google.maps.MapTypeId.ROADMAP
-                    });
+                 }); // init() klammer weg
 
  
-                    //for (var i = 0; i < num_markers; i++) {
-                    markers[0] = new google.maps.Marker({
-                            
+                    //Marker-Definition
+                    markers[0] = new google.maps.Marker({                            
                             position: position,
                             map: map,
                             title: library,
                             html: library,
                             url: linkurl,
                             id: 0,
-                        });
+                        }); //markers[]
 
                         google.maps.event.addListener(markers[0], 'click', function() {
                         window.open(this.url);
                       
-                        });
-                   //}
-                }
+                        }); // addListener
+                } //windows.onload
 
                 init();
             } 
 
- </script>
+    </script>
  </body>
  </html>
