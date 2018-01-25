@@ -18,4 +18,4 @@ Unsere Web-Applikation wurde gemäss folgendem Pflichenheft erstellt: Durch Klic
 Liste wird eine zweite Webseite aufgerufen, welche einen zum Element in Bezug stehenden Ort auf einer Googe-Map darstellt. Durch Klicken auf diesen Ort wird eine dritte Webseite 
 aufgerufen, welche (Detail-) Informationen zum gewählten Element anzeigt. Die Daten, welche zur Darstellung dieser drei Webseiten benötigt werden, müssen in einer Excel-Tabelle mit definierten Spalten zur Verfügung gestellt werden können. Die Änderung der Web-Applikation darf nur aus Copy-Paste-Aktionen von Daten (Spalten) aus dieser Excel-Tabelle in definierte und dokumentierte Dateien der Web-Applikation bestehen. 
 
-Diese allgemeine Anlage soll es ermöglichen, unsere Applikation für ähnlich gelagerte Problematiken auf einfache Weise zu übernehmen.
+Diese allgemeine Anlage soll es ermöglichen, unsere Applikation für ähnlich gelagerte Problematiken auf einfache Weise ohne Programmanpassungen zu übernehmen.
